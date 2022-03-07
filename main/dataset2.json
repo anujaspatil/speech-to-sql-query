@@ -1,0 +1,79 @@
+{"intents": [
+{"tag":"introduction",
+         "patterns":["what is sql","what is structured query language","what is query language"],
+         "responses":["SQL is a domain-specific language used in programming and designed for managing data held in a relational database management system, or for stream processing in a relational data stream management system.”,”SQL (Structured Query Language) is a standardized programming language that's used to manage relational databases and perform various operations on the data in them. Initially created in the 1970s, SQL is regularly used not only by database administrators, but also by developers writing data integration scripts and data analysts looking to set up and run analytical queries."],
+    "context": [""]
+},
+
+{"tag": "selectall",
+         "patterns": ["Display <table_name>", "Show <table_name>", "Display all entries of <table_name>","Show all entries of <table_name>","Show all columns of <table_name>", "Display all rows of <table_name>", "Show all rows of <table_name>","Display all columns of <table_name>"],
+         "responses": ["select * from <table_name>;"],
+         "context": [""]
+        },
+
+{"tag": "selectcolumns",
+         "patterns": ["Display <column_1> from <table_name>", "Show <column_1> from <table_name>", "Display all rows of <column_1> from <table_name>", "Show all rows of <column_1> from <table_name>"],
+         "responses": ["select <column_1> from <table_name>;"],
+         "context": [""]
+        },
+{"tag": "selectdistinctcolumns",
+         "patterns": ["Display distinct values of <column_1> from <table_name>", "Show distinct values of <column_1> from <table_name>", "Display unique values of <column_1> from <table_name>", "Show unique values of <column_1> from <table_name>"],
+         "responses": ["select <column_1> from <table_name>;"],
+         "context": [""]
+        },
+
+
+{"tag": "condition1",
+         "patterns": ["Display <table_name> where <condition>", "Show <table_name> where <condition>", "Display all entries of <table_name> where <condition>","Show all entries of <table_name> where <condition>","Show all columns of <table_name> where <condition>", "Display all rows of <table_name> where <condition>", "Show all rows of <table_name> where <condition>","Display all columns of <table_name> where <condition>"],
+         "responses": ["select * from <table_name> where <condition>;"],
+         "context": [""]
+        },
+
+
+{"tag": "condition2",
+         "patterns": ["Display <column_1> from <table_name> where <condition>", "Show <column_1> from <table_name> where <condition>", "Display all rows of <column_1> from <table_name> where <condition>", "Show all rows of <column_1> from <table_name> where <condition>"],
+         "responses": ["select <column_1> from <table_name> where <condition>;"],
+         "context": [""]
+        },
+
+
+{"tag": "condition3",
+         "patterns": ["Display <table_name> where <condition> and <condition>", "Show <table_name> where <condition> and <condition>", "Display all entries of <table_name> where <condition> and <condition>","Show all entries of <table_name> where <condition> and <condition>","Show all columns of <table_name> where <condition> and <condition>", "Display all rows of <table_name> where <condition> and <condition>", "Show all rows of <table_name> where <condition> and <condition>","Display all columns of <table_name> where <condition> and <condition>"],
+         "responses": ["select * from <table_name> where <condition> and <condition>;"],
+         "context": [""]
+        },
+
+{"tag": "condition4",
+         "patterns": ["Display <column_1> from <table_name> where <condition> and <condition>", "Show <column_1> from <table_name> where <condition> and <condition>", "Display all rows of <column_1> from <table_name> where <condition> and <condition>", "Show all rows of <column_1> from <table_name> where <condition> and <condition>"],
+         "responses": ["select <column_1> from <table_name> where <condition> and <condition>;"],
+         "context": [""]
+        },
+
+
+{"tag": "condition5",
+         "patterns": ["Display <table_name> where <condition> or <condition>", "Show <table_name> where <condition> or <condition>", "Display all entries of <table_name> where <condition> or <condition>","Show all entries of <table_name> where <condition> or <condition>","Show all columns of <table_name> where <condition> or <condition>", "Display all rows of <table_name> where <condition> or <condition>", "Show all rows of <table_name> where <condition> or <condition>","Display all columns of <table_name> where <condition> or <condition>"],
+         "responses": ["select * from <table_name> where <condition> or <condition>;"],
+         "context": [""]
+        },
+
+
+{"tag": "condition6",
+         "patterns": ["Display <column_1> from <table_name> where <condition> or <condition>", "Show <column_1> from <table_name> where <condition> or <condition>", "Display all rows of <column_1> from <table_name> where <condition> or <condition>", "Show all rows of <column_1> from <table_name> where <condition> or <condition>"],
+         "responses": ["select <column_1> from <table_name> where <condition> or <condition>;"],
+         "context": [""]
+        },
+
+{"tag": "condition7",
+         "patterns": ["Display <table_name> where not <condition>", "Show <table_name> where not <condition>", "Display all entries of <table_name> where not <condition>","Show all entries of <table_name> where not <condition>","Show all columns of <table_name> where not <condition>", "Display all rows of <table_name> where not <condition>", "Show all rows of <table_name> where not <condition>","Display all columns of <table_name> where not <condition>"],
+         "responses": ["select * from <table_name> where not <condition>;"],
+         "context": [""]
+        },
+
+{"tag": "condition8",
+         "patterns": ["Display <column_1> from <table_name> where not <condition>", "Show <column_1> from <table_name> where not <condition>", "Display all rows of <column_1> from <table_name> where not <condition>", "Show all rows of <column_1> from <table_name> where not <condition>"],
+         "responses": ["select <column_1> from <table_name> where not <condition>;"],
+         "context": [""]
+        }
+
+   ]
+}

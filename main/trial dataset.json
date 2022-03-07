@@ -1,0 +1,114 @@
+{"intents": [
+{"tag":"introduction",
+         "patterns":["what is sql","what is structured query language","what is query language"],
+         "responses":["SQL is a domain-specific language used in programming and designed for managing data held in a relational database management system, or for stream processing in a relational data stream management system.”,”SQL (Structured Query Language) is a standardized programming language that's used to manage relational databases and perform various operations on the data in them. Initially created in the 1970s, SQL is regularly used not only by database administrators, but also by developers writing data integration scripts and data analysts looking to set up and run analytical queries."],
+    "context": [""]
+},
+
+{"tag": "selectall",
+         "patterns": ["Display <table_name>", "Show <table_name>", "Display all entries of <table_name>","Show all entries of <table_name>","Show all columns of <table_name>", "Display all rows of <table_name>", "Show all rows of <table_name>","Display all columns of <table_name>"],
+         "responses": ["select * from <table_name>;"],
+         "context": [""]
+        },
+
+{"tag": "selectcolumns",
+         "patterns": ["Display <column_1> from <table_name>", "Show <column_1> from <table_name>", "Display all rows of <column_1> from <table_name>", "Show all rows of <column_1> from <table_name>"],
+         "responses": ["select <column_1> from <table_name>;"],
+         "context": [""]
+        },
+{"tag": "selectdistinctcolumns",
+         "patterns": ["Display distinct values of <column_1> from <table_name>", "Show distinct values of <column_1> from <table_name>", "Display unique values of <column_1> from <table_name>", "Show unique values of <column_1> from <table_name>"],
+         "responses": ["select distinct <column_1> from <table_name>;"],
+         "context": [""]
+        },
+
+
+{"tag": "condition1",
+         "patterns": ["Display <table_name> where <condition>", "Show <table_name> where <condition>", "Display all entries of <table_name> where <condition>","Show all entries of <table_name> where <condition>","Show all columns of <table_name> where <condition>", "Display all rows of <table_name> where <condition>", "Show all rows of <table_name> where <condition>","Display all columns of <table_name> where <condition>"],
+         "responses": ["select * from <table_name> where <condition>;"],
+         "context": [""]
+        },
+
+
+{"tag": "condition2",
+         "patterns": ["Display <column_1> from <table_name> where <condition>", "Show <column_1> from <table_name> where <condition>", "Display all rows of <column_1> from <table_name> where <condition>", "Show all rows of <column_1> from <table_name> where <condition>"],
+         "responses": ["select <column_1> from <table_name> where <condition>;"],
+         "context": [""]
+        },
+
+
+{"tag": "condition3",
+         "patterns": ["Display <table_name> where <condition> and <condition>", "Show <table_name> where <condition> and <condition>", "Display all entries of <table_name> where <condition> and <condition>","Show all entries of <table_name> where <condition> and <condition>","Show all columns of <table_name> where <condition> and <condition>", "Display all rows of <table_name> where <condition> and <condition>", "Show all rows of <table_name> where <condition> and <condition>","Display all columns of <table_name> where <condition> and <condition>"],
+         "responses": ["select * from <table_name> where <condition> and <condition>;"],
+         "context": [""]
+        },
+
+{"tag": "condition4",
+         "patterns": ["Display <column_1> from <table_name> where <condition> and <condition>", "Show <column_1> from <table_name> where <condition> and <condition>", "Display all rows of <column_1> from <table_name> where <condition> and <condition>", "Show all rows of <column_1> from <table_name> where <condition> and <condition>"],
+         "responses": ["select <column_1> from <table_name> where <condition> and <condition>;"],
+         "context": [""]
+        },
+
+
+{"tag": "condition5",
+         "patterns": ["Display <table_name> where <condition> or <condition>", "Show <table_name> where <condition> or <condition>", "Display all entries of <table_name> where <condition> or <condition>","Show all entries of <table_name> where <condition> or <condition>","Show all columns of <table_name> where <condition> or <condition>", "Display all rows of <table_name> where <condition> or <condition>", "Show all rows of <table_name> where <condition> or <condition>","Display all columns of <table_name> where <condition> or <condition>"],
+         "responses": ["select * from <table_name> where <condition> or <condition>;"],
+         "context": [""]
+        },
+
+
+{"tag": "condition6",
+         "patterns": ["Display <column_1> from <table_name> where <condition> or <condition>", "Show <column_1> from <table_name> where <condition> or <condition>", "Display all rows of <column_1> from <table_name> where <condition> or <condition>", "Show all rows of <column_1> from <table_name> where <condition> or <condition>"],
+         "responses": ["select <column_1> from <table_name> where <condition> or <condition>;"],
+         "context": [""]
+        },
+
+{"tag": "condition7",
+         "patterns": ["Display <table_name> where not <condition>", "Show <table_name> where not <condition>", "Display all entries of <table_name> where not <condition>","Show all entries of <table_name> where not <condition>","Show all columns of <table_name> where not <condition>", "Display all rows of <table_name> where not <condition>", "Show all rows of <table_name> where not <condition>","Display all columns of <table_name> where not <condition>"],
+         "responses": ["select * from <table_name> where not <condition>;"],
+         "context": [""]
+        },
+
+
+{"tag": "condition8",
+         "patterns": ["Display <column_1> from <table_name> where not <condition>", "Show <column_1> from <table_name> where not <condition>", "Display all rows of <column_1> from <table_name> where not <condition>", "Show all rows of <column_1> from <table_name> where not <condition>"],
+         "responses": ["select <column_1> from <table_name> where not <condition>;"],
+         "context": [""]
+        },
+
+{"tag": "minimum",
+         "patterns": ["return minimum value of <column_1> from <table_name>", "Show minimum of <column_1> from <table_name>", "Display the minimum from <table_name> of <column_1>","give me minimum of <column_1> from <table_name>"],
+         "responses": ["select min(<column_1>) from <table_name>;"],
+         "context": [""]
+        },
+
+{"tag": "maximum",
+         "patterns": ["return maximum value of <column_1> from <table_name>", "Show maximum of <column_1> from <table_name>", "Display the maximum from <table_name> of <column_1>","give me maximum of <column_1> from <table_name>"],
+         "responses": ["select max(<column_1>) from <table_name>;"],
+         "context": [""]
+        },
+{"tag": "sum",
+         "patterns": ["return me sum value of <column_1> from <table_name>", "Show sum of <column_1> from <table_name>", "Display the sum from <table_name> of <column_1>","give me sum of <column_1> from <table_1>","Find the sum of <column_1 from <table_name>"],
+         "responses": ["select sum(<column_1>) from <table_name>;"],
+         "context": [""]
+        },
+{"tag": "average",
+         "patterns": ["return average value of <column_1> from <table_name>", "Show average of <column_1> from <table_name>", "Display the average from <table_name> of <column_1>","give me average of <column_1> from <table_name>","Find the average of <column_1 from <table_name>"],
+         "responses": ["select avg(<column_1>) from <table_name>;"],
+         "context": [""]
+        },
+{"tag": "count",
+         "patterns": ["return count of <column_1> from <table_name>", "Show count of <column_1> from <table_name>", "Display the count from <table_name> of <column_1>","give me count of <column_1> from <table_name>","Find the count of <column_1 from <table_name>"],
+         "responses": ["select count(<column_1>) from <table_name>;"],
+         "context": [""]
+        },
+{"tag": "sort",
+        "patterns": ["sort <column_1> from <table_name>", "sort ascending <column_1> from <table_name>", "sort on <column_1> from <table_name>","arrange <column_1> from <table_name>", "arrange ascending <column_1> from <table_name>", "arrange <column_1> from <table_name> in ascending"],
+        "responses": ["select * from <table_name> order by <column_1>;"],
+        "context": [""]},
+{"tag": "sort desc",
+        "patterns": ["sort <column_1> from <table_name> in descending", "sort descending <column_1> from <table_name>", "sort on <column_1> from <table_name> in descending","arrange <column_1> from <table_name> in descending", "arrange descending <column_1> from <table_name>", "arrange <column_1> from <table_name> in descending"],
+        "responses": ["select * from <table_name> order by <column_1> desc;"],
+        "context": [""]}
+   ]
+}
