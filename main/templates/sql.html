@@ -1,30 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-lg-2" style="margin-left: 20px; padding: 10px ; border: solid darkblue ;">
-        <div class="container" >
-        {% if user.is_authenticated %}
-            <p style="color: black; font-size: 18px">
-                    Username: <b style="color: white;">{{ user.username }}</b>
-            </p>
-            
-        {% endif %}
-        </div>
-      </div>
-        <div class="col-lg-8" style="margin-right: 20px;">
-        <div class="container" style="margin-right: 20px;">
+<div class="sqlpage" id="welcome">
+    <div class="col-lg-8" style="margin:auto;width:100%;margin-top:15%">
+        <div class="container" style="margin:auto;width:100%;">
         
             <div id="sql-body" class="panel panel-default">
+                <!-- <div id="" style="overflow:scroll; height:400px;"></div> -->
                 <div class="panel-heading" style="color: white; background: darkblue">Your Query and results</div>
-                <div id="qry-list-div" class="panel-body">
+                <div id="qry-list-div" class="panel-body" style="max-height: 300px;">
                     <ul id="qry-list" class="list-group">
                         {%for i in sql%}
                         <li class="text-right list-group-item">{{ i.query1 }}</li>
                         <table style="border: 1px solid #ddd;
                         padding: 8px;border-collapse: collapse;
                         width: 20%;">
-                            
+    
                             {% for k in i.output %}
                             <tr>
                                 {% for j in k %}
@@ -39,24 +30,6 @@
                             <!-- {% if obj.user == request.user %} -->
                             
                                 <!-- <li class="text-right list-group-item">{{ obj.query1 }}</li> -->
-                                <!-- 
-                                  <table>
-                                    <tr>
-                                      <th>Company</th>
-                                      <th>Contact</th>
-                                      <th>Country</th>
-                                    </tr>
-                                    <tr>
-                                      <td>Alfreds Futterkiste</td>
-                                      <td>Maria Anders</td>
-                                      <td>Germany</td>
-                                    </tr>
-                                    <tr>
-                                      <td>Centro comercial Moctezuma</td>
-                                      <td>Francisco Chang</td>
-                                      <td>Mexico</td>
-                                    </tr>
-                                  </table> -->
                                 
                                 <!-- <li class="text-left list-group-item">{{ obj.output }}</li> -->
                             <!-- {% else %}
@@ -73,10 +46,10 @@
             <h3> Enter Query </h3>
 
             <form id="sql-form" method="post" action="{% url 'sql:post' %}" >
-                {% csrf_token %}
+                {% csrf_token%}
                 <div id="sql-bottom" class="input-group">
     {#                <input type="text" style="border: solid darkblue" id="sql-qry" name="sql-qry" class="form-control"/>#}
-                    <textarea id="sql-qry" name="sql-qry" class="form-control" />
+                    <textarea id="sql-qry" name="sql-qry" class="form-control" >
                     </textarea>
                     <span class="input-group-btn">
                     <input class="btn btn-default" id="send" type="submit" style="color: darkblue; padding: 16px" value="Send"/>
@@ -115,5 +88,6 @@
         
         </div>
         </div>
-    </div>
+</div>       
+        
 {% endblock content %}

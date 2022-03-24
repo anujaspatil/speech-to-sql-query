@@ -1,6 +1,5 @@
 $('#sql-form').on('submit', function(event){
     event.preventDefault();
-
     $.ajax({
         url : 'post/',
         type : 'POST',
@@ -9,7 +8,20 @@ $('#sql-form').on('submit', function(event){
         success : function(result){
             $('#sql-qry').val('');
             $('#qry-list').append('<li class="text-right list-group-item">'+ result.qry +'</li>');
-            $('#qry-list').append('<li class="text-left list-group-item">'+ result.output +'</li>');
+            var output=JSON.parse(result.output)
+            var s='<table style="border: 1px solid #ddd;padding: 8px;border-collapse: collapse;width: 20%;">'
+            
+            output.forEach(element => {
+                s+='<tr>'
+                element.forEach(e=>{
+                    s+='<td>'+e+'</td>'
+                })
+                s+='</tr>'
+            })
+            s+='</table>'
+            console.log(s)
+            $('#qry-list').append(s)
+                            
                              
                                 
             // var sqllist = document.getElementById('qry-list-div');

@@ -17,64 +17,13 @@
          "context": [""]
         },
 {"tag": "selectdistinctcolumns",
-         "patterns": ["Display distinct values of <column_1> from <table_name>", "Show distinct values of <column_1> from <table_name>", "Display unique values of <column_1> from <table_name>", "Show unique values of <column_1> from <table_name>"],
+         "patterns": ["Display distinct values of <column_1> from <table_name>", "Show distinct values of <column_1> from <table_name>", "Display unique values of <column_1> from <table_name>", "Show unique values of <column_1> from <table_name>","Display distinct <column_1> from <table_name>", "Show distinct <column_1> from <table_name>", "Display unique <column_1> from <table_name>", "Show unique <column_1> from <table_name>"],
          "responses": ["select distinct <column_1> from <table_name>;"],
          "context": [""]
         },
 
 
-{"tag": "condition1",
-         "patterns": ["Display <table_name> where <condition>", "Show <table_name> where <condition>", "Display all entries of <table_name> where <condition>","Show all entries of <table_name> where <condition>","Show all columns of <table_name> where <condition>", "Display all rows of <table_name> where <condition>", "Show all rows of <table_name> where <condition>","Display all columns of <table_name> where <condition>"],
-         "responses": ["select * from <table_name> where <condition>;"],
-         "context": [""]
-        },
 
-
-{"tag": "condition2",
-         "patterns": ["Display <column_1> from <table_name> where <condition>", "Show <column_1> from <table_name> where <condition>", "Display all rows of <column_1> from <table_name> where <condition>", "Show all rows of <column_1> from <table_name> where <condition>"],
-         "responses": ["select <column_1> from <table_name> where <condition>;"],
-         "context": [""]
-        },
-
-
-{"tag": "condition3",
-         "patterns": ["Display <table_name> where <condition> and <condition>", "Show <table_name> where <condition> and <condition>", "Display all entries of <table_name> where <condition> and <condition>","Show all entries of <table_name> where <condition> and <condition>","Show all columns of <table_name> where <condition> and <condition>", "Display all rows of <table_name> where <condition> and <condition>", "Show all rows of <table_name> where <condition> and <condition>","Display all columns of <table_name> where <condition> and <condition>"],
-         "responses": ["select * from <table_name> where <condition> and <condition>;"],
-         "context": [""]
-        },
-
-{"tag": "condition4",
-         "patterns": ["Display <column_1> from <table_name> where <condition> and <condition>", "Show <column_1> from <table_name> where <condition> and <condition>", "Display all rows of <column_1> from <table_name> where <condition> and <condition>", "Show all rows of <column_1> from <table_name> where <condition> and <condition>"],
-         "responses": ["select <column_1> from <table_name> where <condition> and <condition>;"],
-         "context": [""]
-        },
-
-
-{"tag": "condition5",
-         "patterns": ["Display <table_name> where <condition> or <condition>", "Show <table_name> where <condition> or <condition>", "Display all entries of <table_name> where <condition> or <condition>","Show all entries of <table_name> where <condition> or <condition>","Show all columns of <table_name> where <condition> or <condition>", "Display all rows of <table_name> where <condition> or <condition>", "Show all rows of <table_name> where <condition> or <condition>","Display all columns of <table_name> where <condition> or <condition>"],
-         "responses": ["select * from <table_name> where <condition> or <condition>;"],
-         "context": [""]
-        },
-
-
-{"tag": "condition6",
-         "patterns": ["Display <column_1> from <table_name> where <condition> or <condition>", "Show <column_1> from <table_name> where <condition> or <condition>", "Display all rows of <column_1> from <table_name> where <condition> or <condition>", "Show all rows of <column_1> from <table_name> where <condition> or <condition>"],
-         "responses": ["select <column_1> from <table_name> where <condition> or <condition>;"],
-         "context": [""]
-        },
-
-{"tag": "condition7",
-         "patterns": ["Display <table_name> where not <condition>", "Show <table_name> where not <condition>", "Display all entries of <table_name> where not <condition>","Show all entries of <table_name> where not <condition>","Show all columns of <table_name> where not <condition>", "Display all rows of <table_name> where not <condition>", "Show all rows of <table_name> where not <condition>","Display all columns of <table_name> where not <condition>"],
-         "responses": ["select * from <table_name> where not <condition>;"],
-         "context": [""]
-        },
-
-
-{"tag": "condition8",
-         "patterns": ["Display <column_1> from <table_name> where not <condition>", "Show <column_1> from <table_name> where not <condition>", "Display all rows of <column_1> from <table_name> where not <condition>", "Show all rows of <column_1> from <table_name> where not <condition>"],
-         "responses": ["select <column_1> from <table_name> where not <condition>;"],
-         "context": [""]
-        },
 
 {"tag": "minimum",
          "patterns": ["return minimum value of <column_1> from <table_name>", "Show minimum of <column_1> from <table_name>", "Display the minimum from <table_name> of <column_1>","give me minimum of <column_1> from <table_name>"],
@@ -103,12 +52,21 @@
          "context": [""]
         },
 {"tag": "sort",
-        "patterns": ["sort <column_1> from <table_name>", "sort ascending <column_1> from <table_name>", "sort on <column_1> from <table_name>","arrange <column_1> from <table_name>", "arrange ascending <column_1> from <table_name>", "arrange <column_1> from <table_name> in ascending"],
+        "patterns": ["sort <column_1> from <table_name>", "sort ascending <column_1> from <table_name>", "sort on <column_1> from <table_name>","arrange <column_1> from <table_name>", "arrange ascending <column_1> from <table_name>", "arrange <column_1> from <table_name> in ascending","show <column_1> from <table_name> in ascending order"],
         "responses": ["select * from <table_name> order by <column_1>;"],
         "context": [""]},
 {"tag": "sort desc",
-        "patterns": ["sort <column_1> from <table_name> in descending", "sort descending <column_1> from <table_name>", "sort on <column_1> from <table_name> in descending","arrange <column_1> from <table_name> in descending", "arrange descending <column_1> from <table_name>", "arrange <column_1> from <table_name> in descending"],
+        "patterns": ["sort <column_1> from <table_name> in descending", "sort descending <column_1> from <table_name>", "sort on <column_1> from <table_name> in descending","arrange <column_1> from <table_name> in descending", "arrange descending <column_1> from <table_name>", "arrange <column_1> from <table_name> in descending", "show <column_1> from <table_name> in descending order"],
         "responses": ["select * from <table_name> order by <column_1> desc;"],
-        "context": [""]}
+        "context": [""]},
+{"tag": "groupby",
+        "patterns": ["show count of <table_name> group by <column_1>", "return count of <table_name> group by <column_1>"],
+        "responses": ["select count(<column_1>) from <table_name> group by <column_1>"],
+        "context": [""]},
+
+{"tag": "union",
+        "patterns": ["union of <column_1> from <table_name> and <column_1> from <table_name>","show union of <column_1> from <table_name> and <column_2> from <table_name>","return union of <column_1> from <table_name> and <column_2> from <table_name>","<column_1> from <table_name> union <column_2> from <table_name>"],
+        "responses":["select <column_1> from <table_name> union select <column_1> from <table_name>;"],
+        "context":[]}
    ]
 }

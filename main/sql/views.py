@@ -10,6 +10,7 @@ from django.shortcuts import render, redirect
 from sql.nlp import *
 from django.db import connection
 import json
+from django.views.decorators.csrf import csrf_exempt
 
 def home(request):
     if request.user.is_authenticated:
@@ -40,7 +41,7 @@ def home(request):
         }
         return render(request, 'sql.html', ctx)
     else:
-        return render(request, 'base.html', None)
+        return render(request, 'new/HomePage.html', None)
 
 
 def upload(request):
@@ -88,24 +89,49 @@ def integ(msg1):
     msg = msg1.split()
     columns_present = []
 
+    msg_where = []
+    where_clause = []
+    if 'where' in msg:
+        index = msg.index("where")
+        msg_where = msg[index + 1:]
+        msg = msg[:(index)]
+        where_clause = where_statement(msg_where,columns)
+        print(where_clause)
+
     for i in range(len(msg)):
         if msg[i] in Table_name:
+            table_present.append(msg[i])
             msg[i] = "<table_name>"
     for j in range(len(msg)):
         if msg[j] in columns:
             columns_present.append(msg[j])
             msg[j] = "<column_1>"
+    
     query = " ".join(msg)
     ans = chatbot_response(query)
-    ans = ans.replace("<table_name>",Table_name[0])
-    col_present_str = ",".join(columns_present)
+    for j in table_present:
+        ans = ans.replace("<table_name>",j,1)
+    join_present = 0
+    join_list = ["union","join"]
+    for m in join_list:
+        if m in ans:
+            join_present = 1
+    if join_present == 1:
+        for j in columns_present:
+            ans = ans.replace("<column_1>",j,1)
+    else:
+        col_present_str = ",".join(columns_present)
     #for i in columns_present:
-    ans = ans.replace("<column_1>",col_present_str)   
-
-    print("query predicted: ",ans)   
-    return ans     
-
-
+        ans = ans.replace("<column_1>",col_present_str)  
+    if not where_clause:
+        print("query_predicted:",ans)
+        return ans
+    else:
+        ans = ans.replace(";","")
+        print("query predicted: ",(ans + where_clause + ";") )
+        return (ans + where_clause + ";")
+       
+@csrf_exempt
 def post(request):
     if request.method == "POST":
         qry = request.POST.get('qrybox', None)
@@ -135,5 +161,16 @@ def queries(request):
     sql = Sql.objects.filter(user=request.user)
     return render(request, 'queries.html', {'sql': sql})
 
+def sqlpage(request):
+    return render(request, 'sql.html')
 
+def homepage(request):
+    return render(request, 'new\HomePage.html')
 
+def loginpage(request):
+    if request.user.is_authenticated:
+        return render(request, 'new\HomePage.html')
+
+    else:
+        return render(request, 'new\Login_Register.html')
+    

@@ -143,11 +143,50 @@ def chatbot_response(msg):
     res = getResponse(ints, intents)
     return res
 
+def where_statement(msg_where,columns):
+   if len(msg_where) == 0:
+     return("")
+   else:
+      stop_words = ["is","to"]
+      for i in stop_words:
+        while(i in msg_where):
+          msg_where.remove(i)
+      msg_where = [sub.replace('equals', 'equal') for sub in msg_where]
+      operators = ["greater than or equal","less than or equal","greater than","less than","equal"]
+      str1 = " "
+      msgwhere = str1.join(msg_where)
+      for i in operators:
+        while(i in msgwhere):
+          if (i == "greater than or equal"):
+            msgwhere = msgwhere.replace(i,">=")
+          elif (i == "less than or equal"):
+              msgwhere = msgwhere.replace(i,"<=")
+          elif (i == "greater than"):
+              msgwhere = msgwhere.replace(i,">")
+          elif (i == "less than"):
+              msgwhere = msgwhere.replace(i,"<")
+          elif (i == "equal"):
+              msgwhere = msgwhere.replace(i,"=")
+      msg_where = list(msgwhere.split(" "))
 
-Table_name = ["final"]
-columns = ["department","id","name","rollno"]
+      operator_sign = [">=","<=",">","<","="]
+      for q in range(len(msg_where)):
+        if msg_where[q] in operator_sign:
+          if (msg_where[q+1].isnumeric()):
+            pass
+          else:
+            msg_where[q+1] = '"'+msg_where[q+1]+'"' 
+
+      ans_where = " "
+      ans_where = ans_where.join(msg_where)
+      ans_where = " where "+ans_where
+      return(ans_where)
+
+Table_name = ["final","result"]
+columns = ["department","ID","name","score","rollno","marks"]
 
 columns_present = []
+table_present = []
 import webbrowser as wb
 from time import ctime
 import time

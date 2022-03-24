@@ -7,5 +7,7 @@ urlpatterns = [
     path('post/', views.post, name='post'),
     path('queries/', views.queries, name='queries'),
     path('upload/', views.upload, name='views.upload'),
+    path('sqlpage/', views.sqlpage, name='sqlpage'),
+    path('homepage/', views.homepage, name='homepage')
 ]
 
