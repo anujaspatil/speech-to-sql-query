@@ -182,11 +182,10 @@ def where_statement(msg_where,columns):
       ans_where = " where "+ans_where
       return(ans_where)
 
-Table_name = ["final","result"]
-columns = ["department","ID","name","score","rollno","marks"]
-
-columns_present = []
-table_present = []
+# Table_name = ["final","result"]
+# columns = ["department","ID","name","score","rollno","marks"]
+# columns_present = []
+# table_present = []
 import webbrowser as wb
 from time import ctime
 import time

@@ -26,15 +26,6 @@
                               </table>
                         {%endfor%}
                         {% for obj in sql %}
-                            <!-- <b>{{ obj.user }}</b> -->
-                            <!-- {% if obj.user == request.user %} -->
-                            
-                                <!-- <li class="text-right list-group-item">{{ obj.query1 }}</li> -->
-                                
-                                <!-- <li class="text-left list-group-item">{{ obj.output }}</li> -->
-                            <!-- {% else %}
-                                <li class="text-left list-group-item">{{ obj.output }}</li> -->
-                            <!-- {% endif %} -->
                         {% empty %}
                             <li class="text-right list-group-item">No queries yet!</li>
                         {% endfor %}

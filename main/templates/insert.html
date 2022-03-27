@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style type="text/css">
+
+input[type=text]{
+
+  width: 90%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+input[type=submit] {
+  background-color: #F7DC6F ; /* Green */
+  width: 30%;
+  border: none;
+  color: black;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button {
+  background-color: black; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button:hover {
+  background:#82E0AA;
+  color: black;
+}
+
+label{
+		font-size: 18px;
+		font-family: "Lucida Console", "Courier New", monospace;
+
+}
+</style>
+<div class="col-lg-8" style="margin:auto;width:100%">
+  <div class="container" style="margin:auto;width:100%;">
+	<h2 style="color: #F8F9F9; font-family: 'Helvetica Neue', sans-serif; font-size: 40px; font-weight: 100; line-height: 30px; letter-spacing: 1px; padding: 0 0 60px;margin-top:150px;text-align: center; margin-left:350px">Database Info</h2>
+
+<form style="margin-left: 400px" method="post" action="{% url 'sql:getit' %}">
+  <label for="tname">Tables</label><br>
+  <input type="text" id="tname" name="tname" ><br>
+  <label for="cname">Columns</label><br>
+  <input type="text" id="cname" name="cname" ><br><br>
+  <input class="button" type="submit" value="Submit">
+</form> 
+  </div>
+</div>
+
+{% endblock content %}

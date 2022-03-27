@@ -32,6 +32,152 @@
 
 {#    < Chat js>#}
         <style>
+
+            .start_recording{
+                border: none;
+                padding: 0;
+                border-radius: 100%;
+                width: 90px;
+                height: 90px;
+                font-size: 3em;
+                color: #fff;
+                padding: 0;
+                margin: 20px;
+                background: #8261ee;
+                position: absolute;
+                z-index: 999;
+                display: inline-block;
+                line-height: 90px;
+                text-align: center;
+                white-space: nowrap;
+                vertical-align: middle;
+                -ms-touch-action: manipulation;
+                touch-action: manipulation;
+                cursor: pointer;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                background-image: none;
+    
+            }
+            .pulse-ring{
+                content: "";
+                width: 90px;
+                height: 90px;
+                background: #189BFF;
+                border: 5px solid #189BFF;
+                border-radius: 50%;
+                position: absolute;
+                /* top: -5px;
+                left: -5px; */
+                animation: pulsate infinite 1.5s;
+            }
+            @-webkit-keyframes pulsate {
+                    0% {
+                        -webkit-transform: scale(1, 1);
+                        opacity: 1;
+                    }
+                    100% {
+                        -webkit-transform: scale(1.3, 1.3);
+                        opacity: 0;
+                    }
+                    }
+            .stop_recording{
+                border: none;
+                padding: 0;
+                border-radius: 100%;
+                width: 90px;
+                height: 90px;
+                font-size: 3em;
+                color: #fff;
+                padding: 0;
+                margin: 20px;
+                background:red;
+                position: relative;
+                z-index: 999;
+                display: inline-block;
+                line-height: 90px;
+                text-align: center;
+                white-space: nowrap;
+                vertical-align: middle;
+                -ms-touch-action: manipulation;
+                touch-action: manipulation;
+                cursor: pointer;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                background-image: none;
+            }
+    
+            .start_recording_oldcommented{
+                /* margin: 50px auto; */
+                margin: 30px 20px;
+                outline: none;
+                /* display: block; */
+                /* position: relative; */
+                /* float: left; */
+                position: absolute;
+                display: inline;
+                border: none;
+                background-color: #D9AFD9;
+                background-image: -webkit-gradient(linear, left bottom, left top, from(#D9AFD9), to(#97D9E1));
+                background-image: -o-linear-gradient(bottom, #D9AFD9 0%, #97D9E1 100%);
+                background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                text-indent: -1000em;
+                cursor: pointer;
+                -webkit-box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.3) inset, 
+                    0px 0px 0px 15px #fff, 0px 0px 0px 20px #333;
+                        box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.3) inset, 
+                    0px 0px 0px 15px #fff, 0px 0px 0px 20px #333;
+            }
+    
+            .start_recording_hidden{
+                display: none;
+            }
+            .start_recording_oldcommented:hover {
+                    background-color: #ee7bee;
+                    background-image: -webkit-gradient(linear, left bottom, left top, from(#ee7bee), to(#6fe1f5));
+                    background-image: -o-linear-gradient(bottom, #ee7bee 0%, #6fe1f5 100%);
+                    background-image: linear-gradient(0deg, #ee7bee 0%, #6fe1f5 100%);
+                }
+            .stop_recording_hidden{
+                display: none;
+            }
+            .stop_recording_oldcommented{
+                margin: 30px 20px;
+                outline: none;
+                display: inline;
+                /* position: relative; */
+                /* left: -89px; */
+                /* float: left; */
+                border: none;
+                background-color: #ff2038;
+                background-image: -webkit-gradient(linear, left bottom, left top, from(#ff2038), to(#b30003));
+                background-image: -o-linear-gradient(bottom, #ff2038 0%, #b30003 100%);
+                background-image: linear-gradient(0deg, #ff2038 0%, #b30003 100%);
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                text-indent: -1000em;
+                cursor: pointer;
+                -webkit-box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.3) inset, 
+                    0px 0px 0px 15px #fff, 0px 0px 20px #333;
+                        box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.3) inset, 
+                    0px 0px 0px 15px #fff, 0px 0px 0px 20px #333;
+            }
+    
+            #pause-recording{
+                display: none;
+            }
+    
+            #resume-recording{
+                display: none;
+            }
         input {
             border: 1px solid rgb(46, 189, 235);
             border-radius: 3px;
@@ -68,13 +214,13 @@
                     <ul class="nav">
                         <li><a href="/homepage" class="active">Home</a></li>
                         <li><a href="#features">About</a></li>
-                        <li><a style="color:#ff589e"; href="#work-process">Contact Us</a></li>
+                        <li><a href="#work-process">Contact Us</a></li>
                         <!-- <li><a href="#testimonials">Testimonials</a></li> -->
                         <!-- <li><a href="#pricing-plans">Pricing Tables</a></li> -->
                         <!-- <li><a href="#blog">Register/Login</a></li> -->
                         {% if request.user.is_anonymous %}
                         <li><a href="/accounts/login/">Login</a></li>
-                        <li><a style="color:#ff589e"; href="/accounts/signup/">Register</a></li>
+                        <li><a href="/accounts/signup/">Register</a></li>
                         {% else %}
                         <li><a href="/accounts/logout/">Logout</a></li>
                         {% endif %}

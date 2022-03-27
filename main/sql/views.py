@@ -8,10 +8,15 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from sql.nlp import *
+from sql.python import *
 from django.db import connection
 import json
 from django.views.decorators.csrf import csrf_exempt
 
+global Table_name
+Table_name = []
+global columns
+columns = []
 def home(request):
     if request.user.is_authenticated:
         sqls = Sql.objects.filter(user=request.user)
@@ -43,6 +48,20 @@ def home(request):
     else:
         return render(request, 'new/HomePage.html', None)
 
+
+def getit(request):
+    value1=request.POST['tname']
+    value2=request.POST['cname']
+    # value = request.REQUEST.get(request,'TB_sample')
+    # value = request.POST.get('TB_sample','')
+    print(value1)
+    print(value2)
+    Table_name.append(value1)
+    columns1 = [x.strip() for x in value2.split(',')]
+    for t in columns1 :
+        columns.append(t)
+    print(Table_name,columns)
+    return render(request , 'insert.html')
 
 def upload(request):
     customHeader = request.META['HTTP_MYCUSTOMHEADER']
@@ -88,7 +107,8 @@ def integ(msg1):
     print("User:",msg1)
     msg = msg1.split()
     columns_present = []
-
+    table_present = []
+    print(Table_name,columns)
     msg_where = []
     where_clause = []
     if 'where' in msg:
@@ -163,6 +183,9 @@ def queries(request):
 
 def sqlpage(request):
     return render(request, 'sql.html')
+
+def insert(request):
+    return render(request, 'insert.html')
 
 def homepage(request):
     return render(request, 'new\HomePage.html')
