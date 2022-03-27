@@ -7,43 +7,25 @@
         
             <div id="sql-body" class="panel panel-default">
                 <!-- <div id="" style="overflow:scroll; height:400px;"></div> -->
-                <div class="panel-heading" style="color: white; background: darkblue">Your Query and results</div>
+                <div class="panel-heading" style="color: white; background: darkblue">Your python code</div>
                 <div id="qry-list-div" class="panel-body" style="max-height: 300px;">
                     <ul id="qry-list" class="list-group">
-                        {%for i in sql%}
-                        <li class="text-right list-group-item">{{ i.query1 }}</li>
-                        <table style="border: 1px solid #ddd;
-                        padding: 8px;border-collapse: collapse;
-                        width: 20%;">
-    
-                            {% for k in i.output %}
-                            <tr>
-                                {% for j in k %}
-                                  <td>{{j}}</td>
-                                  {%endfor%} 
-                                </tr>
-                                {%endfor%}
-                              </table>
-                        {%endfor%}
-                        {% for obj in sql %}
-                        {% empty %}
-                            <li class="text-right list-group-item">No queries yet!</li>
-                        {% endfor %}
+                        
                     </ul>
                 </div>
             </div>
             <br>
 
-            <h3> Enter Query </h3>
+            <h3> Enter python command </h3>
 
-            <form id="sql-form" method="post" action="{% url 'sql:post' %}" >
+            <form id="pythonform" method="post" action="{% url 'sql:pythonc' %}" >
                 {% csrf_token%}
                 <div id="sql-bottom" class="input-group">
     {#                <input type="text" style="border: solid darkblue" id="sql-qry" name="sql-qry" class="form-control"/>#}
-                    <textarea id="sql-qry" name="sql-qry" class="form-control" >
+                    <textarea id="pythoncode" name="pycode" class="form-control" >
                     </textarea>
                     <span class="input-group-btn">
-                    <input class="btn btn-default" id="send" type="submit" style="color: darkblue; padding: 16px" value="Send"/>
+                    <input class="btn btn-default" id="send1" type="submit" style="color: darkblue; padding: 16px" value="Send"/>
                 </span>
                 </div>
             </form>
@@ -58,7 +40,7 @@
 
                 <br>
                 <h3>
-                    Enter Query: Speech to text
+                    Enter python command: Speech to text
                 </h3>
                 <!-- ----
                 recording buttons

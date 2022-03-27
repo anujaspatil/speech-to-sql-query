@@ -10,6 +10,8 @@ urlpatterns = [
     path('sqlpage/', views.sqlpage, name='sqlpage'),
     path('homepage/', views.homepage, name='homepage'),
     path('insert/', views.insert, name='insert'),
-    path('getit/', views.getit, name='getit')
+    path('getit/', views.getit, name='getit'),
+    path('python/', views.python, name='python'),
+    path('python/pythonc/', views.pythonc, name='pythonc')
 ]
 

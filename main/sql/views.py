@@ -150,7 +150,18 @@ def integ(msg1):
         ans = ans.replace(";","")
         print("query predicted: ",(ans + where_clause + ";") )
         return (ans + where_clause + ";")
-       
+
+
+def pythonc(request):
+    if request.method == "POST":
+        qry = request.POST.get('qrybox', None)
+        print('Our value = ', qry)
+        code=finalans(qry)
+        print(code)
+        return JsonResponse({'qry': qry, 'output':code})
+    else:
+        return HttpResponse('Request should be POST.')
+
 @csrf_exempt
 def post(request):
     if request.method == "POST":
@@ -189,6 +200,9 @@ def insert(request):
 
 def homepage(request):
     return render(request, 'new\HomePage.html')
+
+def python(request):
+    return render(request, 'python.html')
 
 def loginpage(request):
     if request.user.is_authenticated:

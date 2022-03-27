@@ -101,9 +101,33 @@ https://templatemo.com/tm-535-softy-pinko
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
+                        
                         <!-- ***** Features Small Item Start ***** -->
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12"
                             data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
+                            <div class="features-small-item">
+                                <div class="icon">
+                                    {% if request.user.is_anonymous %}
+                                    <a href="/accounts/login">
+                                        <i><img src="{% static 'HomePage_Assets/images/featured-item-01.png' %}"
+                                                alt=""></i>
+                                    </a>
+                                    {% else %}
+                                    <a href="/insert">
+                                        <i><img src="{% static 'HomePage_Assets/images/featured-item-01.png' %}"
+                                                alt=""></i>
+                                    </a>
+                                    {% endif %}
+                                </div>
+                                <h5 class="features-title">Enter Dataset</h5>
+                                <p>Insert the names of tables and columns you want to work with in SQL</p>
+                            </div>
+                        </div>
+                        <!-- ***** Features Small Item End ***** -->
+
+                        <!-- ***** Features Small Item Start ***** -->
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12"
+                            data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">
                             <div class="features-small-item">
 
                                 <div class="icon">
@@ -120,20 +144,7 @@ https://templatemo.com/tm-535-softy-pinko
                                     {% endif %}
                                 </div>
                                 <h5 class="features-title">SQL query</h5>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam, nostrum.</p>
-                            </div>
-                        </div>
-                        <!-- ***** Features Small Item End ***** -->
-
-                        <!-- ***** Features Small Item Start ***** -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12"
-                            data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">
-                            <div class="features-small-item">
-                                <div class="icon">
-                                    <i><img src="{% static 'HomePage_Assets/images/featured-item-01.png'%}" alt=""></i>
-                                </div>
-                                <h5 class="features-title">Python</h5>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p>Speak out about the data you want to fetch in normal language and get the results!</p>
                             </div>
                         </div>
                         <!-- ***** Features Small Item End ***** -->
@@ -142,6 +153,7 @@ https://templatemo.com/tm-535-softy-pinko
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12"
                             data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
                             <div class="features-small-item">
+
                                 <div class="icon">
                                     {% if request.user.is_anonymous %}
                                     <a href="/accounts/login">
@@ -149,17 +161,18 @@ https://templatemo.com/tm-535-softy-pinko
                                                 alt=""></i>
                                     </a>
                                     {% else %}
-                                    <a href="/insert">
+                                    <a href="/python">
                                         <i><img src="{% static 'HomePage_Assets/images/featured-item-01.png' %}"
                                                 alt=""></i>
                                     </a>
                                     {% endif %}
                                 </div>
-                                <h5 class="features-title">Enter Dataset</h5>
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta, beatae dolore.</p>
+                                <h5 class="features-title">Python</h5>
+                                <p>Speak about the code you want to know in python and get raw python code!</p>
                             </div>
                         </div>
                         <!-- ***** Features Small Item End ***** -->
+
                     </div>
                 </div>
             </div>
@@ -179,15 +192,17 @@ https://templatemo.com/tm-535-softy-pinko
                 <div class="col-lg-1"></div>
                 <div class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-top-fix">
                     <div class="left-heading">
-                        <h2 class="section-title">Anout the project</h2>
+                        <h2 class="section-title">About the project</h2>
                     </div>
                     <div class="left-text">
                         <p>The goal of the application revolves around enhancing the environment and the way coders
                             code. The Application helps a person coming from a non-coder background who has not much
                             knowledge of coding to easily code. The Application gives the user the ability to speak his
-                            requirements to be fetched from the database and application will provide the output.</p>
+                            requirements to be fetched from the database and application will provide the output. Read in detail about <a href="{% static 'HomePage_Assets/images/AutoAI Query.pdf'%}">"AutoQuery"</a></p>
                         <p>The paper for AutoQuery named <a href="{% static 'HomePage_Assets/images/final submission.pdf'%}">"AI model to generate SQL queries from natural 
                             language instructions through voice"</a> was presented at "AICES 22"</p>
+                        <p>Poster for <a href="{% static 'HomePage_Assets/images/poster.pdf'%}">"AutoQuery"</a> </p>
+
                     </div>
                 </div>
             </div>

@@ -32,6 +32,31 @@ $('#sql-form').on('submit', function(event){
     });
 });
 
+$('#pythonform').on('submit', function(event){
+    event.preventDefault();
+    var py = document.getElementById('pythoncode');
+    console.log(py)
+    $.ajax({
+        url : 'pythonc/',
+        type : 'POST',
+        data : { 'qrybox' : $('#pythoncode').val() },
+        dataType : 'json',
+        success : function(result){
+            $('#pythoncode').val('');
+            $('#qry-list').append('<li class="text-right list-group-item">'+ result.qry +'</li>');
+                        
+            $('#qry-list').append('<li class="text-left list-group-item">'+ result.output +'</li>');
+                            
+                             
+                                
+            // var sqllist = document.getElementById('qry-list-div');
+            // sqllist.scrollTop = sqllist.scrollHeight;
+        
+        },
+
+    });
+});
+
 // function getQueries(){
 //     if (!scrolling) {
 //         $.get('/queries/', function(queries1){
